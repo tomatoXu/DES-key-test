@@ -334,7 +334,6 @@ int DES_Decrypt(char cipher_output[], int key[64],char message[]){
 		}
 	}
 	//判断末尾是否被填充
-        
         //
 	if(plainBlock[7] < 8){
 		for(count = 8 - plainBlock[7]; count < 7; count++){
@@ -347,9 +346,6 @@ int DES_Decrypt(char cipher_output[], int key[64],char message[]){
                 int i;
                 for(i=0;i<8-plainBlock[7];i++){
                         message[8*(times-1)+i]=plainBlock[i];
-                }
-                for(i=0;i<8-plainBlock[7];i++){
-	             //  printf("%c",plainBlock[i]);
                 }
         }
 	else{//无填充
