@@ -287,7 +287,6 @@ int DES_Encrypt(char plain_input[],int key[64],char cipher_output[]){
                 }
         }
 
-        printf("\n");
 	return OK;
 }
 
@@ -308,10 +307,10 @@ int DES_Decrypt(char cipher_output[], int key[64],char message[]){
 	//将密钥转换为二进制流
 //	Char8ToBit64(keyBlock,bKey);
 	//生成子密钥
+        char *t=cipher_output; 
 	DES_MakeSubKeys(bKey,subKeys);
 	//取文件长度	
-	fileLen = strlen(cipher_output);	//取文件指针当前位置
-     //   printf("the decrypted message:\n");
+	fileLen = strlen(t);	//取文件指针当前位置
         while(1){
 		//密文的字节数一定是8的整数倍
                 int i;
@@ -319,7 +318,6 @@ int DES_Decrypt(char cipher_output[], int key[64],char message[]){
                         cipherBlock[i]=cipher_output[(8*times+i)];
                 }
 		DES_DecryptBlock(cipherBlock,subKeys,plainBlock);
-
 		times ++;
 		if(times*8 < fileLen){
                         int i;
@@ -360,6 +358,7 @@ int DES_Decrypt(char cipher_output[], int key[64],char message[]){
                         message[8*(times-1)+i]=plainBlock[i];
                      //   printf("%c",plainBlock[i]);
                 }
+                message[8*times]='\0';
 	}
         printf("\n");
 	return OK;

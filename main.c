@@ -13,7 +13,7 @@ int main()
         char *cipher;
         char *decrypted_mes;
         char plain_input[256]="";
-        char cipher_output[256];
+        char cipher_output[256]="";
         char message[256];
         int i = 0;
         printf("please input the content to be encrypted:\n");
