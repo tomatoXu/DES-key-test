@@ -286,7 +286,6 @@ int DES_Encrypt(char plain_input[],int key[64],char cipher_output[]){
                         cipher_output[times*8+i]=cipherBlock[i];
                 }
         }
-
 	return OK;
 }
 

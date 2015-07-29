@@ -22,7 +22,10 @@ int main()
 	b = clock();
 	printf("\n加密消耗%d毫秒\n",b-a);
 	cipher = cipher_output;
-        printf("\nthe encrypted message:\n%s\n",cipher);
+        printf("\nthe encrypted message is:\n");
+        for(i=0;i<strlen(cipher);i++){
+                printf("0x%08x ",cipher_output[i]);
+        }
 //	system("pause");
 	a = clock();
 	DES_Decrypt(cipher_output,key_creat,message);
